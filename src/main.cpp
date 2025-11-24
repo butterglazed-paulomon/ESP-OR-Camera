@@ -37,6 +37,7 @@ int frameQuality = 15;
 void connectWifi() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  WiFi.setSleep(false);
 
   Serial.print("Connecting to WiFi");
   while (WiFi.status() != WL_CONNECTED) {
@@ -79,7 +80,7 @@ bool initCamera() {
   config.pixel_format = PIXFORMAT_JPEG;
 
   config.frame_size   = FRAMESIZE_VGA; // 640x480
-  config.jpeg_quality = 15;            // lower = better quality
+  config.jpeg_quality = 25;            // lower = better quality
   config.fb_count     = 2;
   config.fb_location  = CAMERA_FB_IN_PSRAM;
 
